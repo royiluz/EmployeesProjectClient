@@ -1,73 +1,64 @@
-var axios = require('axios');
+const axios = require('axios');
 
 export const getSpecificUser = async (email) => {
-    var config = {
+    const config = {
         method: 'get',
         url: `http://localhost:3020/${email}`,
         headers: {}
     };
-
-    const data = await axios(config)
-        .then(function (response) {
-            console.log(JSON.stringify(response.data));
-            return response.data;
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-
-    return data;
+    try {
+        const response = await axios(config);
+        console.log(JSON.stringify(response.data));
+        return response.data;
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 export const getAll = async () => {
-    var config = {
+    const config = {
         method: 'get',
         url: 'http://localhost:3020/',
         headers: {}
     };
 
-    const data = await axios(config)
-        .then(function (response) {
-            console.log(JSON.stringify(response.data));
-            return response.data;
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-    return data;
+    try {
+        const response = await axios(config);
+        console.log(JSON.stringify(response.data));
+        return response.data;
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 export const updateStatus = async (email, status) => {
-    var config = {
+    const config = {
         method: 'put',
         url: `http://localhost:3020/${email}?status=${status}`,
         headers: {}
     };
 
-    await axios(config)
-        .then(function (response) {
-            console.log(JSON.stringify(response.status));
-            return response.status;
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+    try {
+        const response = await axios(config);
+        console.log(JSON.stringify(response.status));
+        return response.status;
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 export const addNewUser = async (email, name, status) => {
-    var config = {
+    const config = {
         method: 'post',
         url: `http://localhost:3020/${email}?name=${name}&status=${status}`,
         headers: {}
     };
-
-    await axios(config)
-        .then(function (response) {
-            console.log(JSON.stringify(response.status));
-            return response.status;
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+    try {
+        const response = await axios(config);
+        console.log(JSON.stringify(response.status));
+        return response.status;
+    } catch (err) {
+        console.log(err);
+    }
 }
 

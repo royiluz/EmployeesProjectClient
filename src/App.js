@@ -17,7 +17,6 @@ export default class App extends Component {
     }
   }
 
-
   handleLoginCallback = async (userLoggedIn, validEmailToRegister) => {
     const allEmployees = await getAll()
     if (userLoggedIn) {
@@ -49,7 +48,6 @@ export default class App extends Component {
     });
     this.setState({ employees: list, curUser: updatedCurUser });
   }
-
 
   render() {
     return (
